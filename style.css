@@ -1,0 +1,186 @@
+:root {
+  --bg: #0b0f1a;
+  --panel: #11182a;
+  --text: #e6f0ff;
+  --accent: #5ee6ff;
+  --accent-2: #8aff80;
+  --danger: #ff6b6b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(
+    1200px 800px at 50% -20%,
+    #122038 0%,
+    #0b0f1a 60%
+  );
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell,
+    "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  overflow: hidden;
+}
+
+.shell {
+  width: min(92vw, 920px);
+  aspect-ratio: 4/3;
+  background: linear-gradient(180deg, #0f1630, #0b0f1a);
+  border: 2px solid #1b2647;
+  border-radius: 18px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+header.ui {
+  position: absolute;
+  inset: 10px 10px auto 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.pill {
+  pointer-events: auto;
+}
+
+.pill {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+}
+
+.pill .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+}
+
+canvas#game {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(
+    180deg,
+    rgba(7, 10, 18, 0),
+    rgba(7, 10, 18, 0.35)
+  );
+  z-index: 10;
+  padding: 24px;
+  text-align: center;
+}
+
+.card {
+  background: rgba(8, 12, 22, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 22px 20px;
+  max-width: 560px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+p {
+  margin: 8px 0;
+  opacity: 0.9;
+}
+
+.btns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+button.btn {
+  appearance: none;
+  border: 0;
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  background: linear-gradient(180deg, #26c6da, #0097a7);
+  color: white;
+  box-shadow: 0 6px 18px rgba(0, 183, 207, 0.45);
+}
+
+button.btn.secondary {
+  background: linear-gradient(180deg, #7c88a6, #5a6685);
+  box-shadow: 0 6px 18px rgba(122, 142, 180, 0.35);
+}
+
+/* Mobile touch controls */
+.touch {
+  position: absolute;
+  inset: auto 0 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  padding: 10px;
+  z-index: 7;
+  pointer-events: none;
+}
+
+.touch button {
+  pointer-events: auto;
+  height: 56px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.badge {
+  font-weight: 800;
+  color: var(--accent-2);
+}
+
+.danger {
+  color: var(--danger);
+}
+
+.muted {
+  opacity: 0.8;
+}

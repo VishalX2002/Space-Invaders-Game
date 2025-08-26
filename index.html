@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Invaders</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="shell">
+        <header class="ui">
+            <div class="pill" title="Score"><span class="dot"></span> Score: <span id="score">0</span></div>
+            <div class="pill" title="Lives"><span class="dot" style="background: var(--accent-2);"></span> Lives: <span
+                    id="lives">3</span></div>
+            <div class="pill" title="Level"><span class="dot" style="background: #c896ff;"></span> Level: <span
+                    id="level">1</span></div>
+            <div class="pill" title="Pause (P)"><span class="dot" style="background: #ffd166;"></span> <span
+                    id="status">Ready</span></div>
+        </header><canvas id="game" width="800" height="600" aria-label="Space Invaders game area"></canvas>
+
+        <div id="menu" class="overlay">
+            <div class="card">
+                <h1>👾 Space Invaders</h1>
+                <p>Move with <b>← / →</b> or <b>A / D</b>, shoot with <b>Space</b>, and pause with <b>P</b>.</p>
+                <p class="muted">Clear all invaders before they reach the ground. Avoid enemy fire. Good luck, pilot!
+                </p>
+                <div class="btns">
+                    <button class="btn" id="start">Start Game</button>
+                    <button class="btn secondary" id="how">How to Play</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="howto" class="overlay" style="display:none;">
+            <div class="card">
+                <h1>How to Play</h1>
+                <p>• <span class="badge">Move</span>: Arrow keys or A/D &nbsp; • <span class="badge">Shoot</span>: Space
+                    &nbsp; • <span class="badge">Pause</span>: P</p>
+                <p>• Destroy all invaders. They move faster as their numbers drop.
+                    Enemies will also <span class="danger">shoot back</span>. You have 3 lives.</p>
+                <div class="btns"><button class="btn" id="howClose">Got it!</button></div>
+            </div>
+        </div>
+
+        <div class="touch" id="touch">
+            <button id="left">◀</button>
+            <button id="fire">Fire</button>
+            <button id="right">▶</button>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
