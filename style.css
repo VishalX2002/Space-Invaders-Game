@@ -184,3 +184,10 @@ button.btn.secondary {
 .muted {
   opacity: 0.8;
 }
+
+.footer {
+  color: white;
+  /* right: 210px; */
+  position: absolute;
+  bottom: 20px;
+}
