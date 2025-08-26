@@ -47,15 +47,15 @@
     return Math.random() * (max - min) + min;
   }
 
-  // --- Entities ---
+  // Entities
   class Player {
     constructor() {
       this.w = 46;
       this.h = 18;
       this.x = (WORLD.w - this.w) / 2;
       this.y = WORLD.ground - this.h;
-      this.speed = 320; // px/sec
-      this.cooldown = 0; // seconds
+      this.speed = 320;
+      this.cooldown = 0;
     }
     update(dt, input) {
       if (input.left) this.x -= this.speed * dt;
@@ -64,21 +64,20 @@
       this.cooldown = Math.max(0, this.cooldown - dt);
       if (input.fire && this.cooldown === 0) {
         bullets.push(new Bullet(this.x + this.w / 2, this.y));
-        this.cooldown = 0.25; // 250ms
+        this.cooldown = 0.25;
       }
     }
     draw() {
-      // Ship body
       ctx.fillStyle = COLORS.player;
       ctx.fillRect(this.x, this.y, this.w, this.h);
-      // Triangle nose
+
       ctx.beginPath();
       ctx.moveTo(this.x + this.w / 2, this.y - 10);
       ctx.lineTo(this.x + this.w * 0.8, this.y);
       ctx.lineTo(this.x + this.w * 0.2, this.y);
       ctx.closePath();
       ctx.fill();
-      // Glow
+
       ctx.shadowColor = COLORS.player;
       ctx.shadowBlur = 25;
       ctx.fillRect(this.x + this.w / 2 - 2, this.y + this.h, 4, 6);
@@ -144,7 +143,6 @@
           ? COLORS.enemy2
           : COLORS.enemy3;
       ctx.fillStyle = color;
-      // little pixel-art alien
       const { x, y, w, h } = this;
       ctx.fillRect(x, y, w, h * 0.35);
       ctx.fillRect(x + w * 0.15, y + h * 0.35, w * 0.7, h * 0.35);
@@ -171,7 +169,7 @@
     }
   }
 
-  // --- Game objects ---
+  //  Game objects
   let player = new Player();
   let bullets = [];
   let enemies = [];
@@ -207,15 +205,15 @@
       shields.push(new Shield(x, WORLD.ground - 110));
     }
 
-    swarm.dx = 24 + Math.min(90, level * 8); // base horizontal speed
-    swarm.direction = 1; // 1 -> right, -1 -> left
+    swarm.dx = 24 + Math.min(90, level * 8);
+    swarm.direction = 1;
     swarm.drop = 18 + Math.min(42, level * 3);
     swarm.timer = 0;
   }
 
   const swarm = { dx: 28, direction: 1, drop: 18, timer: 0 };
 
-  // --- Input ---
+  //  Input
   const input = { left: false, right: false, fire: false };
   const keyMap = {
     ArrowLeft: "left",
@@ -286,7 +284,7 @@
     }
   );
 
-  // --- Core loop ---
+  //  Core loop
   let last = 0;
   function loop(ts) {
     if (!STATE.running) {
@@ -513,7 +511,7 @@
     enemies.forEach((e) => {
       e.y += swarm.drop;
     });
-    swarm.dx *= 1.05; // speed up slightly on each edge hit
+    swarm.dx *= 1.05;
   }
 
   function startGame() {
